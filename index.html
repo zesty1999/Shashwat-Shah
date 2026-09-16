@@ -50,6 +50,7 @@
 </div>
 
 <a class="skip-link" href="#main">Skip to content</a>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
 <header class="site-header">
   <div class="wrap header-inner">
@@ -73,10 +74,10 @@
   <aside class="sidebar" id="top">
     <div class="sidebar-inner">
       <div class="sidebar-top">
-        <p class="eyebrow">Tech Lead · Fixerra</p>
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>Tech Lead · Fixerra</p>
         <h1>Shashwat <span class="accent">Shah</span></h1>
         <p class="role-line">Senior Backend Engineer &amp; Tech Lead — Fintech, Payments &amp; Distributed Systems</p>
-        <p class="hero-hook"><span class="prompt mono">&gt;</span> I build backend systems that move real money reliably.<span class="cursor-blink" aria-hidden="true"></span></p>
+        <p class="hero-hook"><span class="prompt mono">&gt;</span> <span id="typedHook">I build backend systems that move real money reliably.</span><span class="cursor-blink" aria-hidden="true"></span></p>
         <p class="hero-sub">6+ years designing and owning production banking, NBFC, and payment infrastructure — bank/NBFC integrations, event-driven microservices, and distributed backends in Node.js, NestJS &amp; TypeScript on AWS. I also build AI tooling that speeds up production support, without it ever touching how money actually moves.</p>
         <p class="location">Indore, India — Building production fintech systems since 2020</p>
         <div class="cta-row sidebar-cta">

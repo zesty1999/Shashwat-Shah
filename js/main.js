@@ -35,9 +35,46 @@ if ("IntersectionObserver" in window && revealEls.length) {
   revealEls.forEach((el) => el.classList.add("is-visible"));
 }
 
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// Hero prompt line: type out the existing text once on load (content is
+// already in the DOM for no-JS/SEO/screen readers; this only re-types it).
+const typedHook = document.getElementById("typedHook");
+if (typedHook && !prefersReducedMotion) {
+  const fullText = typedHook.textContent;
+  typedHook.textContent = "";
+  let i = 0;
+  (function typeNext() {
+    if (i <= fullText.length) {
+      typedHook.textContent = fullText.slice(0, i);
+      i++;
+      setTimeout(typeNext, 28);
+    }
+  })();
+}
+
+// Scroll progress bar
+const scrollProgress = document.getElementById("scrollProgress");
+if (scrollProgress) {
+  let ticking = false;
+  function updateProgress() {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+    scrollProgress.style.transform = `scaleX(${Math.min(Math.max(progress, 0), 1)})`;
+    ticking = false;
+  }
+  updateProgress();
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      requestAnimationFrame(updateProgress);
+      ticking = true;
+    }
+  });
+  window.addEventListener("resize", updateProgress);
+}
+
 // Stats: count up from 0 when scrolled into view
 const countEls = document.querySelectorAll("[data-count-to]");
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 function animateCount(el) {
   const target = parseInt(el.getAttribute("data-count-to"), 10);

@@ -207,7 +207,8 @@ h1, h2, h3, h4 {
 }
 
 .eyebrow {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   margin: 0 0 20px;
   padding: 4px 10px;
   border: 1px solid var(--border-strong);
@@ -218,6 +219,47 @@ h1, h2, h3, h4 {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent-text);
+}
+
+.status-dot {
+  position: relative;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--accent-text);
+  flex-shrink: 0;
+}
+.status-dot::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border: 1px solid var(--accent-text);
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: status-pulse 2.2s ease-out infinite;
+}
+@keyframes status-pulse {
+  0% { transform: scale(0.5); opacity: 0.7; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .status-dot::after { animation: none; opacity: 0; }
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: 50;
+  will-change: transform;
 }
 
 .sidebar h1 {
