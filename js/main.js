@@ -117,21 +117,39 @@ const sections = Array.from(sideNavLinks)
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
 
+function setActiveSideNav(link) {
+  if (!link) return;
+  sideNavLinks.forEach((l) => l.classList.remove("is-active"));
+  link.classList.add("is-active");
+}
+
 if ("IntersectionObserver" in window && sections.length) {
   const spy = new IntersectionObserver(
     (entries) => {
+      // Near the bottom of the page there may not be enough room below the
+      // last section for it to ever cross a mid-viewport band, so once
+      // we're effectively at the bottom, force the last link active.
+      const atBottom =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      if (atBottom) {
+        setActiveSideNav(sideNavLinks[sideNavLinks.length - 1]);
+        return;
+      }
       entries.forEach((entry) => {
-        const link = document.querySelector(`.side-nav a[href="#${entry.target.id}"]`);
-        if (!link) return;
         if (entry.isIntersecting) {
-          sideNavLinks.forEach((l) => l.classList.remove("is-active"));
-          link.classList.add("is-active");
+          setActiveSideNav(document.querySelector(`.side-nav a[href="#${entry.target.id}"]`));
         }
       });
     },
-    { rootMargin: "-40% 0px -55% 0px" }
+    { rootMargin: "0px 0px -60% 0px" }
   );
   sections.forEach((section) => spy.observe(section));
+
+  window.addEventListener("scroll", () => {
+    const atBottom =
+      window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+    if (atBottom) setActiveSideNav(sideNavLinks[sideNavLinks.length - 1]);
+  });
 }
 
 // Case study cards: open full detail in a modal dialog
