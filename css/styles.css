@@ -251,12 +251,6 @@ h1, h2, h3, h4 {
   font-size: 2rem;
   color: #fff;
   background: #0a0a10;
-  animation: unspin 8s linear infinite;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-@keyframes unspin { to { transform: rotate(-360deg); } }
-@media (prefers-reduced-motion: reduce) {
-  .avatar-ring, .avatar { animation: none; }
 }
 
 .eyebrow {
@@ -288,11 +282,29 @@ h1, h2, h3, h4 {
   50% { background-position: 100% center; }
 }
 
-.hero .tagline {
-  max-width: 520px;
-  margin: 0 auto 8px;
+.role-line {
+  max-width: 560px;
+  margin: 0 auto 16px;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.hero-hook {
+  max-width: 560px;
+  margin: 0 auto 12px;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
+}
+
+.hero-sub {
+  max-width: 560px;
+  margin: 0 auto 14px;
   color: var(--text-muted);
-  font-size: 1.06rem;
+  font-size: 1.02rem;
 }
 
 .hero .location {
@@ -527,6 +539,171 @@ h1, h2, h3, h4 {
   line-height: 1.55;
 }
 .exp-role strong { color: var(--text); }
+.exp-role .role-context {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* Case studies */
+.case-studies {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 32px;
+}
+
+.case-study {
+  padding: 30px;
+}
+
+.cs-header {
+  margin-bottom: 20px;
+}
+.cs-index {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-solid);
+  margin-bottom: 6px;
+}
+.cs-header h3 {
+  margin: 0 0 6px;
+  font-size: 1.25rem;
+}
+.cs-context {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.cs-block {
+  padding-top: 18px;
+  margin-top: 18px;
+  border-top: 1px solid var(--border);
+}
+.cs-block:first-of-type {
+  padding-top: 0;
+  margin-top: 0;
+  border-top: none;
+}
+.cs-block h4 {
+  margin: 0 0 8px;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text);
+  opacity: 0.85;
+}
+.cs-block p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+.cs-block strong { color: var(--text); }
+
+.cs-impact ul {
+  margin: 0;
+  padding-left: 1.1em;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.cs-impact li { margin-bottom: 4px; }
+
+.cs-placeholder {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--accent-3);
+  font-size: 0.82rem;
+  font-style: italic;
+}
+
+/* Flow diagrams */
+.flow-diagram {
+  margin-top: 18px;
+  padding: 20px;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  overflow-x: auto;
+}
+.flow-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+.flow-node {
+  padding: 8px 16px;
+  border: 1px solid var(--border-hover);
+  border-radius: 8px;
+  background: var(--bg-elevated);
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text);
+  text-align: center;
+  white-space: nowrap;
+}
+.flow-node-queue {
+  border-color: var(--accent-solid);
+  color: var(--accent-solid);
+  font-weight: 600;
+}
+.flow-steps li:not(:last-child)::after {
+  content: "↓";
+  display: block;
+  margin: 4px 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1;
+}
+.flow-chips {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.chip {
+  display: inline-block;
+  padding: 4px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.76rem;
+}
+
+.cs-stack {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chip-stack {
+  border-color: var(--border-hover);
+  color: var(--text);
+  background: var(--bg-elevated);
+}
+
+/* Contact */
+.contact-alt {
+  margin-top: 18px;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+.contact-alt a { color: var(--text-muted); }
+.contact-alt a:hover { color: var(--accent-solid); }
 
 /* Skills */
 .skill-grid {
@@ -649,5 +826,10 @@ h1, h2, h3, h4 {
   .exp-card { padding: 18px; }
 
   .hero h1 { font-size: 2rem; }
+  .hero-hook { font-size: 1.2rem; }
   .blob { filter: blur(60px); opacity: 0.35; }
+
+  .case-study { padding: 22px; }
+  .flow-diagram { padding: 16px; }
+  .flow-node { white-space: normal; font-size: 0.8rem; }
 }
