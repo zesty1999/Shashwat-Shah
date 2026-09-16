@@ -23,7 +23,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧩</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 <script type="application/ld+json">
 {
@@ -46,9 +46,6 @@
 <body>
 
 <div class="bg-glow" aria-hidden="true">
-  <span class="blob blob-1"></span>
-  <span class="blob blob-2"></span>
-  <span class="blob blob-3"></span>
   <span class="bg-grid"></span>
 </div>
 
@@ -60,7 +57,7 @@
     <nav class="nav" id="nav">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
-      <a href="#work">Case Studies</a>
+      <a href="#work">Work</a>
       <a href="#skills">Skills</a>
       <a href="#achievements">Achievements</a>
       <a href="#contact">Contact</a>
@@ -75,15 +72,12 @@
 
   <section class="hero" id="top">
     <div class="wrap hero-inner">
-      <div class="avatar-ring">
-        <div class="avatar" aria-hidden="true">SS</div>
-      </div>
       <p class="eyebrow">Tech Lead · Fixerra</p>
-      <h1>Shashwat <span class="gradient-text">Shah</span></h1>
+      <h1>Shashwat <span class="accent">Shah</span></h1>
       <p class="role-line">Senior Backend Engineer &amp; Tech Lead — Fintech, Payments &amp; Distributed Systems</p>
-      <p class="hero-hook">I build backend systems that move real money reliably.</p>
+      <p class="hero-hook"><span class="prompt mono">&gt;</span> I build backend systems that move real money reliably.</p>
       <p class="hero-sub">6+ years designing and owning production banking, NBFC, and payment infrastructure — bank/NBFC integrations, event-driven microservices, and distributed backends in Node.js, NestJS &amp; TypeScript on AWS. I also build AI tooling that speeds up production support, without it ever touching how money actually moves.</p>
-      <p class="location">📍 Indore, India · Building production fintech systems since 2020</p>
+      <p class="location">Indore, India — Building production fintech systems since 2020</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="Resume.pdf" target="_blank" rel="noopener">View Résumé</a>
         <a class="btn" href="mailto:sms1999.shah@gmail.com?subject=Let%27s%20talk">Let's Talk</a>
@@ -96,7 +90,7 @@
 
   <section class="section" id="about">
     <div class="wrap">
-      <h2 class="section-title reveal">About</h2>
+      <h2 class="section-title reveal"><span class="idx mono">01</span>About</h2>
       <p class="about-text reveal">
         6+ years designing, building, and owning backend systems that banks and NBFCs trust with real money —
         end-to-end integrations, payment infrastructure, and the production reliability behind them. Currently
@@ -104,19 +98,19 @@
       </p>
 
       <div class="stats">
-        <div class="stat glass reveal">
+        <div class="stat reveal">
           <span class="stat-num">6+</span>
           <span class="stat-label">Years Experience</span>
         </div>
-        <div class="stat glass reveal">
+        <div class="stat reveal">
           <span class="stat-num">10+</span>
           <span class="stat-label">Microservices Led</span>
         </div>
-        <div class="stat glass reveal">
+        <div class="stat reveal">
           <span class="stat-num">90%</span>
           <span class="stat-label">API Latency Cut</span>
         </div>
-        <div class="stat glass reveal">
+        <div class="stat reveal">
           <span class="stat-num">95%</span>
           <span class="stat-label">Reconciliation Automated</span>
         </div>
@@ -126,10 +120,10 @@
 
   <section class="section alt" id="experience">
     <div class="wrap">
-      <h2 class="section-title reveal">Experience</h2>
+      <h2 class="section-title reveal"><span class="idx mono">02</span>Experience</h2>
 
       <div class="exp-grid">
-        <article class="exp-card exp-featured glass reveal">
+        <article class="exp-card exp-featured panel reveal">
           <div class="exp-head">
             <img class="exp-logo" src="assets/logos/fixerra.png" alt="Fixerra logo" loading="lazy">
             <div>
@@ -167,7 +161,7 @@
           </div>
         </article>
 
-        <article class="exp-card glass reveal">
+        <article class="exp-card panel reveal">
           <div class="exp-head">
             <img class="exp-logo" src="assets/logos/primathon.png" alt="Primathon logo" loading="lazy">
             <div>
@@ -188,7 +182,7 @@
           </div>
         </article>
 
-        <article class="exp-card glass reveal">
+        <article class="exp-card panel reveal">
           <div class="exp-head">
             <img class="exp-logo exp-logo-pad" src="assets/logos/airtel.svg" alt="Airtel logo" loading="lazy">
             <div>
@@ -221,7 +215,7 @@
 
   <section class="section" id="work">
     <div class="wrap">
-      <h2 class="section-title reveal">Selected Engineering Work</h2>
+      <h2 class="section-title reveal"><span class="idx mono">03</span>Selected Engineering Work</h2>
       <p class="about-text reveal">
         Three systems that show how I actually work: the production problem, how it was architected, what I owned,
         and what changed as a result.
@@ -229,12 +223,22 @@
 
       <div class="case-studies">
 
-        <article class="case-study glass reveal">
-          <div class="cs-header">
-            <span class="cs-index">Case Study 01</span>
-            <h3>Banking &amp; NBFC Investment Platform</h3>
+        <details class="case-study reveal">
+          <summary class="cs-summary">
+            <div class="cs-summary-main">
+              <span class="cs-index">Case Study 01</span>
+              <h3>Banking &amp; NBFC Investment Platform</h3>
+              <p class="cs-pitch">Investment platform integrating bank &amp; NBFC partners into a 10+ microservice backend, with automated reconciliation.</p>
+            </div>
+            <div class="cs-metrics">
+              <div class="cs-metric"><span class="cs-metric-val">90%</span><span class="cs-metric-label">latency cut</span></div>
+              <div class="cs-metric"><span class="cs-metric-val">95%</span><span class="cs-metric-label">reconciled</span></div>
+              <div class="cs-metric"><span class="cs-metric-val">10+</span><span class="cs-metric-label">services</span></div>
+            </div>
+            <svg class="cs-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="cs-body">
             <p class="cs-context">Fixerra — FD, RD, Credit Card &amp; Savings products, sold through bank and NBFC partners</p>
-          </div>
 
           <div class="cs-block">
             <h4>Problem</h4>
@@ -319,14 +323,25 @@
             <span class="chip chip-stack">EventBridge</span>
             <span class="chip chip-stack">CloudWatch</span>
           </div>
-        </article>
-
-        <article class="case-study glass reveal">
-          <div class="cs-header">
-            <span class="cs-index">Case Study 02</span>
-            <h3>Payment &amp; Transaction Processing</h3>
-            <p class="cs-context">Fixerra — collection, disbursement &amp; refund flows across banking products</p>
           </div>
+        </details>
+
+        <details class="case-study reveal">
+          <summary class="cs-summary">
+            <div class="cs-summary-main">
+              <span class="cs-index">Case Study 02</span>
+              <h3>Payment &amp; Transaction Processing</h3>
+              <p class="cs-pitch">Collection, disbursement &amp; refund flows across 3 payment gateways and bank rails, built for correctness under retries.</p>
+            </div>
+            <div class="cs-metrics">
+              <div class="cs-metric"><span class="cs-metric-val">95%</span><span class="cs-metric-label">reconciled</span></div>
+              <div class="cs-metric"><span class="cs-metric-val">3</span><span class="cs-metric-label">gateways</span></div>
+              <div class="cs-metric"><span class="cs-metric-val">24h→6h</span><span class="cs-metric-label">MTTR</span></div>
+            </div>
+            <svg class="cs-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="cs-body">
+            <p class="cs-context">Fixerra — collection, disbursement &amp; refund flows across banking products</p>
 
           <div class="cs-block">
             <h4>Problem</h4>
@@ -408,14 +423,24 @@
             <span class="chip chip-stack">SQS</span>
             <span class="chip chip-stack">Redis</span>
           </div>
-        </article>
-
-        <article class="case-study glass reveal">
-          <div class="cs-header">
-            <span class="cs-index">Case Study 03</span>
-            <h3>AI-Assisted Production &amp; Partner Support</h3>
-            <p class="cs-context">Fixerra — production triage and partner query resolution across 10+ services</p>
           </div>
+        </details>
+
+        <details class="case-study reveal">
+          <summary class="cs-summary">
+            <div class="cs-summary-main">
+              <span class="cs-index">Case Study 03</span>
+              <h3>AI-Assisted Production &amp; Partner Support</h3>
+              <p class="cs-pitch">AI-assisted triage for production issues and partner queries across 10+ live microservices.</p>
+            </div>
+            <div class="cs-metrics">
+              <div class="cs-metric"><span class="cs-metric-val">10+</span><span class="cs-metric-label">services</span></div>
+              <div class="cs-metric"><span class="cs-metric-val">24h→6h</span><span class="cs-metric-label">MTTR</span></div>
+            </div>
+            <svg class="cs-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="cs-body">
+            <p class="cs-context">Fixerra — production triage and partner query resolution across 10+ services</p>
 
           <div class="cs-block">
             <h4>Problem</h4>
@@ -486,7 +511,8 @@
             <span class="chip chip-stack">CloudWatch</span>
             <span class="chip chip-stack">Structured Logging</span>
           </div>
-        </article>
+          </div>
+        </details>
 
       </div>
     </div>
@@ -494,9 +520,9 @@
 
   <section class="section alt" id="skills">
     <div class="wrap">
-      <h2 class="section-title reveal">Skills</h2>
+      <h2 class="section-title reveal"><span class="idx mono">04</span>Skills</h2>
       <div class="skill-grid">
-        <div class="skill-card glass reveal">
+        <div class="skill-card reveal">
           <div class="skill-head">
             <span class="skill-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="2"/><path d="M2.5 9.5h19"/><path d="M6 14.5h4"/></svg>
@@ -506,7 +532,7 @@
           <p>Banking &amp; NBFC APIs, FD / RD / Credit Cards / Savings, Payment Gateways (Razorpay, PayU, Cashfree), TPV &amp; Autopay, KYC / Digilocker, Reconciliation Automation</p>
         </div>
 
-        <div class="skill-card glass reveal">
+        <div class="skill-card reveal">
           <div class="skill-head">
             <span class="skill-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><circle cx="7" cy="7" r="0.6" fill="currentColor" stroke="none"/><circle cx="7" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg>
@@ -516,7 +542,7 @@
           <p>Node.js, NestJS, Express.js, Python (Flask), TypeScript, REST &amp; GraphQL, Microservices, Event-driven Architecture, SQS &amp; BullMQ, Idempotency &amp; Caching</p>
         </div>
 
-        <div class="skill-card glass reveal">
+        <div class="skill-card reveal">
           <div class="skill-head">
             <span class="skill-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.66 3.58 3 8 3s8-1.34 8-3v-13"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg>
@@ -526,7 +552,7 @@
           <p>MySQL, PostgreSQL, MongoDB, DynamoDB, Redis</p>
         </div>
 
-        <div class="skill-card glass reveal">
+        <div class="skill-card reveal">
           <div class="skill-head">
             <span class="skill-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18.5h10a4 4 0 0 0 .5-7.97 6 6 0 0 0-11.3-2.23A4.5 4.5 0 0 0 7 18.5Z"/></svg>
@@ -536,7 +562,7 @@
           <p>AWS (Lambda, ECS, EC2, S3, EventBridge), Athena &amp; Glue, CloudWatch, Docker, Jenkins / CI-CD</p>
         </div>
 
-        <div class="skill-card glass reveal">
+        <div class="skill-card reveal">
           <div class="skill-head">
             <span class="skill-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2c.7 4.2 2.8 6.3 7 7-4.2.7-6.3 2.8-7 7-.7-4.2-2.8-6.3-7-7 4.2-.7 6.3-2.8 7-7Z"/></svg>
@@ -551,22 +577,22 @@
 
   <section class="section" id="achievements">
     <div class="wrap">
-      <h2 class="section-title reveal">Achievements &amp; Education</h2>
+      <h2 class="section-title reveal"><span class="idx mono">05</span>Achievements &amp; Education</h2>
 
-      <div class="achievement glass reveal">
-        <span class="achievement-icon" aria-hidden="true">🏆</span>
+      <div class="achievement reveal">
         <div>
           <h4>Runner-up — Generative AI Hackathon</h4>
-          <p class="role-dates">Primathon · Indore · Jun 2024</p>
+          <p>Primathon · Indore</p>
         </div>
+        <span class="achievement-when">Jun 2024</span>
       </div>
 
-      <div class="achievement glass reveal">
-        <span class="achievement-icon" aria-hidden="true">🎓</span>
+      <div class="achievement reveal">
         <div>
           <h4>B.Tech in Computer Science and Engineering</h4>
-          <p class="role-dates">NIIT University, Neemrana, Rajasthan · 2016 – 2020</p>
+          <p>NIIT University, Neemrana, Rajasthan</p>
         </div>
+        <span class="achievement-when">2016 – 2020</span>
       </div>
     </div>
   </section>
