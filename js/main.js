@@ -35,6 +35,45 @@ if ("IntersectionObserver" in window && revealEls.length) {
   revealEls.forEach((el) => el.classList.add("is-visible"));
 }
 
+// Stats: count up from 0 when scrolled into view
+const countEls = document.querySelectorAll("[data-count-to]");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function animateCount(el) {
+  const target = parseInt(el.getAttribute("data-count-to"), 10);
+  const suffix = el.getAttribute("data-suffix") || "";
+  if (prefersReducedMotion || isNaN(target)) {
+    el.textContent = target + suffix;
+    return;
+  }
+  const duration = 900;
+  const start = performance.now();
+  function tick(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(target * eased) + suffix;
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+if ("IntersectionObserver" in window && countEls.length) {
+  const countObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          countObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.6 }
+  );
+  countEls.forEach((el) => countObserver.observe(el));
+} else {
+  countEls.forEach((el) => animateCount(el));
+}
+
 // Sidebar nav: highlight the link matching the section in view
 const sideNavLinks = document.querySelectorAll(".side-nav a");
 const sections = Array.from(sideNavLinks)
